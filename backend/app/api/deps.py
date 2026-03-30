@@ -6,7 +6,6 @@ from jose import JWTError, jwt
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
-from app.core.security import verify_password
 from app.db.session import get_db
 from app.models.user import User
 from app.schemas.token import TokenPayload
