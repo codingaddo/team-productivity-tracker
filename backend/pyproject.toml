@@ -1,30 +1,29 @@
 [project]
-name = "team-productivity-tracker-backend"
+name = "team-productivity-backend"
 version = "0.1.0"
-description = "FastAPI backend for the Team Productivity Tracker"
-readme = "README.md"
+description = "FastAPI backend for Team Productivity Tracker"
+readme = "../README.md"
 requires-python = ">=3.11"
 dependencies = [
-  "fastapi>=0.115.0",
-  "uvicorn[standard]>=0.30.0",
-  "pydantic>=2.8.0",
-  "sqlalchemy>=2.0.32",
-  "psycopg[binary]>=3.2.1",
-  "python-jose[cryptography]>=3.3.0",
-  "passlib[bcrypt]>=1.7.4",
-  "python-multipart>=0.0.9",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.4.0",
+    "sqlalchemy>=2.0.0",
+    "asyncpg>=0.29.0",
+    "alembic>=1.13.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
 ]
 
 [dependency-groups]
-dev = ["pytest>=8.3.0", "httpx>=0.27.0", "pytest-asyncio>=0.23.8"]
+dev = [
+    "pytest>=8.0.0",
+    "httpx>=0.27.0",
+]
 
-[build-system]
-requires = ["hatchling>=1.25.0"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-packages = ["app"]
+[tool.uv]
+package = true
 
 [tool.pytest.ini_options]
-addopts = "-q"
-asyncio_mode = "auto"
+pythonpath = ["app"]
