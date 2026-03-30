@@ -1,8 +1,10 @@
-export default function Home() {
+export default function HomePage() {
   return (
-    <main style={{ fontFamily: 'system-ui', padding: '2rem' }}>
-      <h1>Team Productivity Tracker</h1>
-      <p>FastAPI backend and Next.js frontend scaffold for MCP Testing Sprint 2.</p>
-    </main>
+    <div className="text-center space-y-4">
+      <h1 className="text-3xl font-bold">Team Productivity Tracker</h1>
+      <p className="text-slate-700">
+        Use the navigation to login and start tracking your time.
+      </p>
+    </div>
   );
 }
