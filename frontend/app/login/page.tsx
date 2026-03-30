@@ -1,0 +1,5 @@
+'use client';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '../../lib/auth';
+export default function LoginPage() { const { login } = useAuth(); const router = useRouter(); const [email, setEmail] = useState(''); const [password, setPassword] = useState(''); const [error, setError] = useState(''); const [busy, setBusy] = useState(false); return <main><h1>Login</h1><form onSubmit={async e => { e.preventDefault(); setBusy(true); setError(''); try { await login(email, password); router.push('/time'); } catch (err) { setError(err instanceof Error ? err.message : 'Login failed'); } finally { setBusy(false); } }}><input aria-label="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" /><input aria-label="password" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" /><button disabled={busy}>{busy ? 'Signing in...' : 'Sign in'}</button></form>{error ? <p role="alert">{error}</p> : null}</main>; }
