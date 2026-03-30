@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/team_productivity"
+    DATABASE_URL: str = "sqlite+aiosqlite:///./team_productivity.db"
 
 
 settings = Settings()
